@@ -1,18 +1,20 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: white;
-}
-h1{
-    text-align: center;
-}
-body {
-    background-color: black;
-    color:white;
-    font-family: "Fira Sans", sans-serif;
-}
+@charset "UTF-8";
+/*style.css */
+@import url(
+'https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100vh;
+    background-color: purple;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+
+}
 .sub-menu-wrap{
 	position:absolute;
 	top:12%;
@@ -22,6 +24,7 @@ body {
 	overflow:hidden;
 	transition :max-height o.5s;
 	border-radius: 40px;
+	color:white;
 }
 
 .sub-menu-wrap.open-menu{
@@ -95,31 +98,11 @@ body {
 .navbar:hover ul img{
 	cursor:pointer;
 }
-
-.HappyJolly{
-    display: none;
-    margin-top: 20px;
-}
-
-.SadJolly{
-    display: none;
-}
-iframe{
-    position:inherit;
-}
-
-.container, .logsHistory{
-	float:left;
-	width:800px;
-	padding:200px;
-}
-
 nav {
-    width: 100%;
+    width: 90%;
     height: 80px;
     display: flex;
     justify-content: space-between;
-    padding: 20px 5%;
     background-color: purple;
 }
 
@@ -163,104 +146,78 @@ nav .sideMenuButton {
     /* display: none; */
 }
 
-/* responsive navbar css */
-@media screen and (max-width: 600px) {
-    nav .sideMenuButton {
-        display: flex;
-    }
-
-    nav .navbar {
-        display: none;
-    }
-
-    .sideNavigationBar {
-        display: block !important;
-    }
-}
-
-.sideNavigationBar {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0%;
-    background-color: purple;
-    overflow-x: hidden;
-    transition: 0.3s ease-in;
-    padding-top: 60px;
-    display: none;
-}
-
-.sideNavigationBar a {
-    padding: 8px 8px 8px 40px;
-    display: block;
-    font-size: 25px;
-    font-weight: 500;
-    color: #d1d1d1;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.sideNavigationBar a button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: purple;
-    font-size: 16px;
-    border-style: none;
+.textup {
+    text-align: center;
+    color: white;
     font-weight: 700;
 }
 
-.sideNavigationBar a:hover {
+i {
+    margin-right: 3px;
+}
+
+.form-box {
+    background-color: rgb(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(36, 67, 40, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    width: 500px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.radio-group {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 17px;
     color: white;
+    font-weight: 600;
 }
 
-.sideNavigationBar .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 20px;
-    margin-left: 50px;
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
 }
 
-button{
-    height: 50px;
-    width: 130px;
+button {
+     height: 60px;
+    width: 150px;
     border-radius: 50px;
     background-image: linear-gradient(to right,
             #e200e2, rgb(108 1 108));
-    font-size: 18px;
+    font-size: 22px;
+    color:white;
+    font-weight:500px;
     border: none;
     cursor: pointer;
-}
-button:hover{
-    background-color: purple;
-    background-image: none;
-    color:white;
-}
-h1 h3{
-    padding: 3%;
-}
-.logs{
-    padding: 2%;
-    position: left;
+    width: 100%;
+    font-size: 20px;
+    transition: .2s linear;
 }
 
-.history {
-            margin-top: 20px;
-        }
-        
-form option{
-	background-color:purple;
+button:hover {
+    background-color: #0a6808;
+    border: none;
+    transform: translateY(-10px);
 }
 
-form select{
-	background-color:purple;
-	 background-image: linear-gradient(to right,
-            #e200e2, rgb(108 1 108));
-	width:200px;
-	height:35px;
-}
-
-select:hover{
-	background-color:purple;
-	background-image:none;
+h1 {
+    color: green;
 }

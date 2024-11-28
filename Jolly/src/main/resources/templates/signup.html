@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Jolly Signup</title>
+<link rel="stylesheet" th:href="@{/css/signup.css}">
+</head>
+<body>
+    <header>
+        <h1 class="heading"><img src="asset\images\JollyLogo.png" height="70px"></h1>
+        <h3 class="title">Don't have an account?? Sign up now!</h3>
+    </header>
+
+    <!-- container div -->
+    <div class="container">
+
+        <!-- upper button section to select
+             the login or signup form -->
+        <div class="slider"></div>
+        <div class="btn">
+            <button class="login">Login</button>
+            <button class="signup">Signup</button>
+        </div>
+
+        <div class="form-section">
+
+           
+		<!-- login form -->
+		<div class="login-box">
+			<form th:action="@{/login}" method="post">
+				<input type="email" name="gmail" class="email ele mt5"
+					placeholder="youremail@email.com"> 
+					<input type="password" name="password"
+					class="password ele mt5" placeholder="password">
+				<button class="clkbtn mt5">Login</button>
+				
+			</form>
+		</div>
+
+            <!-- signup form -->
+            <div class="signup-box">
+            <form th:action="@{/signup}" method="post" th:object="${user}">
+                <input type="text" 
+                       class="name ele mt5" 
+                       placeholder="Enter your firstname" th:field="*{firstname}">
+                <input type="text" 
+                       class="name ele mt5" 
+                       placeholder="Enter your lastname" th:field="*{lastname}">
+                <input type="email" 
+                       class="email ele mt5" 
+                       placeholder="youremail@email.com" th:field="*{gmail}">
+                <input type="text" 
+                       class="password ele mt5" 
+                       placeholder="password" th:field="*{password}">
+                
+                <button class="clkbtn mt5">Signup</button>
+                
+            </form>
+            </div>
+        </div>
+    </div>
+    <div th:if=${error}>
+					<p th:text="${error}"></p>
+				</div>
+    <script src="/js/signup.js"></script>
+
+</body>
+</html>

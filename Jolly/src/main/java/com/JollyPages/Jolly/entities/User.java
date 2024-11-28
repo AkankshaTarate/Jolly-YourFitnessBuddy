@@ -2,6 +2,7 @@ package com.JollyPages.Jolly.entities;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,9 +18,11 @@ public class User {
 	private int userid;
 	private String firstname;
 	private String lastname;
+	private String password;
+	@Column(unique = true)
 	private String gmail;
-	private String weight;
-	private String height;
+	private float weight;
+	private float height;
 	private String goal;
 	@Transient
 	private int otp;
@@ -27,12 +30,22 @@ public class User {
 	private Workout workout;
 	@ManyToOne
 	private Diet diet;
+	private int points;
 	
 	@PrePersist
     protected void onCreate() {
         this.timestamp = LocalDateTime.now(); // Automatically set the timestamp before insert
     }
 	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 	private LocalDateTime timestamp;
 	
 	public int getUserid() {
@@ -71,16 +84,16 @@ public class User {
 	public void setGmail(String gmail) {
 		this.gmail = gmail;
 	}
-	public String getWeight() {
+	public float getWeight() {
 		return weight;
 	}
-	public void setWeight(String weight) {
+	public void setWeight(float weight) {
 		this.weight = weight;
 	}
-	public String getHeight() {
+	public float getHeight() {
 		return height;
 	}
-	public void setHeight(String height) {
+	public void setHeight(float height) {
 		this.height = height;
 	}
 	public String getGoal() {
@@ -108,18 +121,26 @@ public class User {
 		this.diet = diet;
 	}
 	
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", gmail=" + gmail
-				+ ", weight=" + weight + ", height=" + height + ", goal=" + goal + ", otp=" + otp + ", workout="
-				+ workout + ", diet=" + diet + ", timestamp=" + timestamp + "]";
+	
+	public int getPoints() {
+		return points;
 	}
-	public User(int userid, String firstname, String lastname, String gmail, String weight, String height, String goal,
-			int otp, Workout workout, Diet diet, LocalDateTime timestamp) {
+
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	
+
+
+	public User(int userid, String firstname, String lastname, String password, String gmail, float weight,
+			float height, String goal, int otp, Workout workout, Diet diet, int points, LocalDateTime timestamp) {
 		super();
 		this.userid = userid;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.password = password;
 		this.gmail = gmail;
 		this.weight = weight;
 		this.height = height;
@@ -127,8 +148,20 @@ public class User {
 		this.otp = otp;
 		this.workout = workout;
 		this.diet = diet;
+		this.points = points;
 		this.timestamp = timestamp;
 	}
+
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", password="
+				+ password + ", gmail=" + gmail + ", weight=" + weight + ", height=" + height + ", goal=" + goal
+				+ ", otp=" + otp + ", workout=" + workout + ", diet=" + diet + ", points=" + points + ", timestamp="
+				+ timestamp + "]";
+	}
+
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
